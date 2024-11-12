@@ -1,0 +1,563 @@
+/* Root Variables for Colors */
+:root {
+    --primary-color: #ff4081;
+    --secondary-color: #6a1b9a;
+    --highlight-color: #ffe082;
+    --error-color: #d32f2f;
+    --text-color: #3e2723;
+    --background-color: #ffffff;
+    --input-border-color: #ff6f00;
+    --input-focus-color: #d32f2f;
+    --button-hover-color: #c51162;
+    --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    --border-radius: 8px;
+}
+
+/* Global Styles */
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-image: url('Trolly.jpeg');
+    background-size: cover;
+    background-position: center;
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dashboard-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Allow content to wrap when space is tight */
+    min-height: 100vh; /* Ensure the container takes at least the full viewport height */
+    overflow: hidden; /* Prevent unwanted scrolling outside the container */
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto; /* Allow vertical scrolling in the main content */
+    max-width: calc(100% - 300px); /* Prevent the sidebar from overlapping */
+    height: calc(100vh - 40px); /* Ensure it takes up the available space */
+}
+
+.sidebar {
+    width: 250px;
+    background-color: var(--highlight-color);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    position: relative;
+    z-index: 2;
+    animation: fadeIn 0.5s ease-in-out;
+    flex-shrink: 0;
+    height: 100%; /* Ensure sidebar takes full height */
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    margin-top: 30px;
+    overflow-y: auto; /* Make the sidebar scrollable if needed */
+}
+
+.sidebar-welcome {
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: var(--secondary-color);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
+.sidebar-welcome #userEmail {
+    font-weight: bold;
+    max-width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/* Product Cards (Home Section) */
+.product-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Grid layout for items */
+    gap: 20px;
+    width: 100%; /* Ensure full width */
+    box-sizing: border-box;
+    margin-top: 20px;
+}
+
+.product {
+    background-color: white;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.product:hover {
+    transform: translateY(-10px);
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+}
+
+.product h2 {
+    color: var(--secondary-color);
+    font-size: 1.5em;
+    margin-top: 10px;
+}
+
+.product p {
+    font-size: 1em;
+    margin-top: 5px;
+}
+
+.product button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: var(--border-radius);
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.product button:hover {
+    background-color: var(--button-hover-color);
+    transform: translateY(-2px);
+}
+
+.product button:active {
+    transform: translateY(0);
+}
+
+/* Sidebar Styles */
+.sidebar h2 {
+    margin-bottom: 20px;
+    font-size: 2em;
+    color: var(--secondary-color);
+    text-align: center;
+}
+
+.sidebar ul {
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 15px;
+}
+
+.sidebar ul li a {
+    font-size: 1.2em;
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+    transition: color 0.3s;
+}
+
+.sidebar ul li a:hover {
+    color: var(--primary-color);
+}
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInUp {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 600px) {
+    .dashboard-container {
+        flex-direction: column;
+        max-width: 100%;
+    }
+
+    .sidebar {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .main-content {
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    .product-container {
+        grid-template-columns: 1fr 1fr; /* Adjust to 2 columns for small screens */
+    }
+
+    .sidebar h2 {
+        font-size: 1.8em; /* Smaller font size for sidebar title */
+    }
+
+    .product h2 {
+        font-size: 1.3em;
+    }
+
+    .product p {
+        font-size: 0.9em;
+    }
+
+    .product button {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .sidebar ul li a {
+        font-size: 1.1em;
+    }
+}
+
+/* Custom Styles for Dashboard Header and Footer */
+footer {
+    background-color: var(--secondary-color);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9em;
+}
+
+/* Footer Link */
+footer a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Centering the "Place your order" text */
+.centered-text {
+    display: flex;
+    justify-content: center;  /* Horizontally center */
+    align-items: center;      /* Vertically center */
+    text-align: center;       /* Ensure text inside is also centered */
+    height: 100vh;            /* Ensure it takes the full height of the screen or parent container */
+    font-size: 2em;           /* Adjust font size */
+    color: var(--primary-color);  /* Set the text color (change as needed) */
+    font-weight: bold;        /* Bold for emphasis */
+}
+
+/* If you want the text within a specific container (like a section) */
+.section-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;  /* or a specific height you want for the container */
+    padding: 20px;
+}
+
+
+        .dashboard-container {
+            display: flex;
+            width: 100%;
+            max-width: 1200px; /* Adjust as needed */
+            margin: 20px auto; /* Center the container */
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            padding: 20px;
+            width: 250px; /* Adjust as needed */
+            margin-right: 20px;
+        }
+
+        .sidebar h2 {
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .sidebar-welcome {
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 20px; /* Add spacing */
+        }
+
+        #userEmail {
+            color: #ff6600; /* Orange color for email */
+            font-weight: bold;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar li {
+            margin-bottom: 15px;
+        }
+
+        .sidebar li a {
+            color: #333;
+            text-decoration: none;
+            display: block; /* Make links fill the entire width */
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.2s ease;
+            font-weight: 500; /* Slightly bolder font weight */
+            text-align: center; /* Center text within the links */
+        }
+
+        .sidebar li a:hover {
+            background-color: #f0f0f0;
+        }
+
+        .material-icons {
+            font-size: 1.5rem;
+            vertical-align: middle;
+            display: inline-block; /* Make icon display inline */
+            margin-right: 10px; /* Add spacing between icon and text */
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+        }
+
+        /* Show/Hide Elements */
+        .show {
+            display: block;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 3rem; /* Larger heading */
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        /* Product Container */
+        .product-container {
+            display: flex;
+            margin: 30px 0;
+            max-width: 1000px; /* Adjust as needed */
+            width: 100%;
+            overflow-x: auto; /* Enable horizontal scrollbar */
+            margin: 30px auto; /* Center the product container */
+        }
+
+        /* Product List */
+        .product-list {
+            display: flex;
+            transition: transform 0.5s ease; /* Smooth transition for scrolling */
+        }
+
+        /* Product Card */
+        .product {
+            min-width: 250px; /* Minimum width for each product */
+            background-color: #fff;
+            border-radius: 15px; /* More rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Deeper shadow */
+            padding: 25px;
+            text-align: center;
+            margin-right: 20px; /* Space between products */
+            position: relative; /* For absolute positioning of the hover effect */
+        }
+
+        .product:hover {
+            transform: translateY(-10px); /* More pronounced hover effect */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Product Image */
+        .product img {
+            width: 180px; /* Larger image */
+            height: 180px;
+            object-fit: cover;
+            border-radius: 15px; /* Match product card radius */
+            margin-bottom: 15px;
+        }
+
+        /* Product Title */
+        .product h2 {
+            color: #663300; /* Brownish color */
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        /* Product Description */
+        .product p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        /* Add to Cart Button */
+        .add-to-cart {
+            background-color: #ff6600; /* Orange color */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .add-to-cart:hover {
+            background-color: #e65100; /* Darker orange */
+        }
+
+        /* Order Form and Cart */
+        .order-form {
+            background-color: #fff;
+            border-radius: 15px; /* More rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Deeper shadow */
+            padding: 30px;
+            width: 400px;
+            margin: 30px auto; /* Center the order form */
+            text-align: center; /* Center the form elements */
+        }
+
+        .order-form label {
+            color: #333;
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block; /* Make labels block-level */
+            text-align: left; /* Align labels to the left */
+        }
+
+        .order-form input,
+        .order-form select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            width: 100%;
+        }
+
+        .order-form button {
+            background-color: #ff6600; /* Orange color */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .order-form button:hover {
+            background-color: #e65100; /* Darker orange */
+        }
+
+        /* Cart (Removed, no longer needed) */
+
+        /* Order History */
+        .order-history {
+            margin-top: 30px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            width: 400px;
+            text-align: center;
+            margin: 30px auto; /* Center the order history */
+        }
+
+        .order-history h3 {
+            color: #663300; /* Brownish color */
+            margin-bottom: 15px;
+        }
+
+        .order-history ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .order-history li {
+            margin-bottom: 8px;
+        }
+
+        /* Cancellation Section */
+        .cancellation-section {
+            background-color: #fff;
+            border-radius: 15px; /* More rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Deeper shadow */
+            padding: 30px;
+            width: 400px;
+            margin: 30px auto; /* Center the cancellation section */
+            text-align: center;
+        }
+
+        .cancellation-section h3 {
+            color: #663300; /* Brownish color */
+            margin-bottom: 15px;
+        }
+
+        .cancellation-section p {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .cancellation-section button {
+            background-color: #ff6600; /* Orange color */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .cancellation-section button:hover {
+            background-color: #e65100; /* Darker orange */
+        }
+
+        .cancellation-section select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            width: 100%;
+        }
+
+        h2{
+            text-align: center;
+        }

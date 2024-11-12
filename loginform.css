@@ -1,0 +1,213 @@
+/* Base styles for the body */
+:root {
+    --primary-color: #ff4081;
+    --secondary-color: #6a1b9a;
+    --highlight-color: #ffe082;
+    --error-color: #d32f2f;
+    --text-color: #3e2723;
+    --background-color: #ffffff;
+    --input-border-color: #ff6f00;
+    --input-focus-color: #d32f2f;
+    --button-hover-color: #c51162;
+    --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    --border-radius: 8px;
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-image: url('Trolls.jpg');
+    background-size: cover;
+    background-position: center;
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    text-align: center; /* Center all text except labels and placeholders */
+  }
+  
+  body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0); /* No blur */
+    z-index: 1;
+  }
+  
+  form {
+    background-color: var(--highlight-color);
+    padding: 20px; /* Reduced padding */
+    border-radius: var(--border-radius); /* Slightly smaller border radius */
+    box-shadow: var(--box-shadow); /* Slightly less shadow */
+    width: 100%;
+    max-width: 350px; /* Smaller width */
+    border: 3px dashed var(--input-border-color);
+    position: relative;
+    z-index: 2;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  h2 {
+    margin-bottom: 15px; /* Reduced margin */
+    color: var(--secondary-color);
+    font-size: 1.8em; /* Smaller font size */
+    animation: slideInUp 0.5s ease-in-out;
+  }
+  
+  label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+    font-size: 1em; /* Slightly smaller font size */
+    text-align: left; /* Align labels to the left */
+  }
+  
+  input {
+    width: calc(100% - 20px);
+    padding: 8px; /* Reduced padding */
+    margin-bottom: 12px; /* Reduced margin */
+    border: 2px solid var(--input-border-color);
+    border-radius: var(--border-radius);
+    transition: border-color 0.3s, background-color 0.3s;
+    font-size: 0.9em; /* Smaller font size */
+    animation: fadeIn 0.5s ease-in-out;
+    text-align: left; /* Align input text to the left */
+  }
+  
+  input::placeholder {
+    text-align: left; /* Align placeholder text to the left */
+  }
+  
+  input:focus {
+    border-color: var(--input-focus-color);
+    background-color: #ffe0b2;
+    outline: none;
+  }
+  
+  button {
+    padding: 10px; /* Reduced padding */
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 14px; /* Smaller font size */
+    transition: background-color 0.3s, transform 0.2s;
+    font-weight: bold;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.7s ease-in-out;
+  }
+  
+  button:hover {
+    background-color: var(--button-hover-color);
+    transform: translateY(-2px);
+  }
+  
+  button:active {
+    transform: translateY(0);
+  }
+  
+  a {
+    display: block;
+    margin-top: 10px; /* Reduced margin */
+    color: #1e88e5;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  .error {
+    color: var(--error-color);
+    font-size: 0.9em;
+    margin-top: -8px; /* Reduced margin */
+    margin-bottom: 8px; /* Reduced margin */
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  .error-message {
+    color: var(--error-color);
+    font-size: 0.9em;
+    margin-top: 5px;
+    animation: fadeIn 0.5s ease-in-out;
+    text-align: center; /* Keep error messages centered */
+  }
+  
+  .password-toggle {
+    position: relative;
+  }
+  
+  .password-toggle-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 18px; /* Smaller icon size */
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideInUp {
+    0% {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    body {
+      padding: 10px;
+    }
+  
+    form {
+      padding: 20px;
+      max-width: 90%; /* Full width on small screens */
+    }
+  
+    h2 {
+      font-size: 1.5em;
+    }
+  
+    label {
+      font-size: 0.9em; /* Slightly smaller label font size */
+    }
+  
+    input {
+      font-size: 0.85em; /* Smaller input font size */
+    }
+  
+    button {
+      font-size: 14px; /* Smaller button font size */
+      padding: 10px;
+    }
+  
+    .footer a {
+      font-size: 0.85em;
+    }
+  }
