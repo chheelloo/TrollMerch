@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/loginform.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <title>Sign Up - Troll Merch</title>
+</head>
+<body>
+    <div class="form-container">
+        <form id="signupForm" action="/signup" method="post">
+            <h2>Create an Account</h2>
+            
+            <!-- Email Input -->
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
+            <div id="emailError" class="error-message"></div>
+
+            <!-- Password Input -->
+            <label for="password">Password</label>
+            <div class="password-toggle">
+                <input type="password" id="password" name="password" placeholder="Create a password" required>
+                <span id="togglePassword" class="password-toggle-icon">👁</span>
+            </div>
+            <div id="passwordError" class="error-message"></div>
+
+            <!-- Confirm Password Input -->
+            <label for="confirmPassword">Confirm Password</label>
+            <div class="password-toggle">
+                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
+                <span id="toggleConfirmPassword" class="password-toggle-icon">👁</span>
+            </div>
+            <div id="confirmPasswordError" class="error-message"></div>
+
+            <!-- Submit Button -->
+            <button type="submit">Sign Up</button>
+
+            <!-- Footer Links -->
+            <div class="footer">
+                <p>Already have an account? <a href="index.html">Login here</a></p>
+            </div>
+        </form>
+    </div>
+
+    <script src="js/signup.js"></script>
+</body>
+</html>
